@@ -18,11 +18,18 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.facebook.react:react-native:${safeExtGet('reactNativeVersion', '+')}"
 
-    api files('libs/onesignal-iceperk.jar')
+    api 'com.onesignal:OneSignal:3.11.1@aar'
 
     testImplementation 'junit:junit:4.12'
 }
